@@ -8,12 +8,10 @@ interface Props {
 }
 
 const IndexScreen: React.FC<Props> = ({ navigation }) => {
-    const { state, addBlogPost, deleteBlogPost } = useContext(Context);
+    const { state, deleteBlogPost } = useContext(Context);
 
     return (
         <View>
-            <Button title="Add Post" onPress={
-                addBlogPost} />
             <FlatList 
                 data={state} 
                 keyExtractor={blogPost => blogPost.id}
@@ -46,8 +44,10 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingVertical: 20,
         paddingHorizontal: 20,
-        borderTopWidth: 1,
-        borderColor: 'gray'
+        borderBottomWidth: 1,
+        borderColor: '#ddd',
+        backgroundColor: '#eee',
+        marginTop: 2
     },
     title: {
         fontSize: 18
